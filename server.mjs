@@ -3,6 +3,8 @@ import consolidate from 'consolidate';
 
 const app = express();
 
+app.set('trust proxy', true);
+
 // assign the mustache engine to .html files
 app.engine('html', consolidate.mustache);
 
