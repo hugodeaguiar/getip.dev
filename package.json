@@ -1,0 +1,20 @@
+{
+  "name": "ip-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.mjs",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node server.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "consolidate": "^1.0.3",
+    "express": "^4.17.1",
+    "internal-ip": "^8.0.0",
+    "mustache": "^4.2.0",
+    "public-ip": "^6.0.2"
+  }
+}

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quickly discover your public and internal IP addresses with our intuitive app. Easily view your IPv4, IPv6, and internal IP. Ideal for developers and tech enthusiasts who need precise network information.">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/css/pure-min.css">
+    <link rel="stylesheet" href="/css/grids-responsive-min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="header">
+        <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+            <h1>
+                <a class="pure-menu-heading" href="/">{{ title }}</a>
+            </h1>
+        </div>
+    </div>
+
+    <div class="splash-container">
+        <div class="splash">
+            <div class="splash-head">
+                IPV4: {{ ipv4 }} <br><br>
+                IPV6: {{ ipv6 }} <br><br>
+                Internal IP: {{ internalIpv4 }}
+            </div>
+            <p class="splash-subhead">
+                Your current IP addresses. Important for network troubleshooting and security.
+            </p>
+        </div>
+    </div>
+
+    <div class="footer l-box is-center">
+        Copyright © 2024 - All rights reserved by <a href="https://www.linkedin.com/in/hugodeaguiar/?locale=en_US" target="_blank">Hugo Aguiar</a>
+    </div>
+</div>
+</body>
+</html>

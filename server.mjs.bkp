@@ -1,0 +1,17 @@
+import express from 'express';
+import { publicIpv4, publicIp } from 'public-ip';
+
+const app = express();
+
+app.get('/', async (req, res) => {
+    const pubip = await publicIp();
+
+    const ipv4 = await publicIpv4();
+
+    // Send the IP addresses as the response
+    res.send(`${pubip}
+${ipv4}
+    `);
+});
+
+app.listen(3000, () => console.log(`Server is listening on port 3000`));
