@@ -1,7 +1,4 @@
 import express from 'express';
-import { publicIpv4, publicIpv6 } from 'public-ip';
-import {internalIpV4} from 'internal-ip';
-
 import consolidate from 'consolidate';
 
 const app = express();
@@ -16,11 +13,9 @@ app.set('views', './views');
 app.use(express.static('views/public'))
 
 app.get('/', async (req, res) => {
-    const ipv6 = await publicIpv6();
-    const ipv4 = await publicIpv4();
-    const internalIpv4 = await internalIpV4();
+    const ip = req.ip;
 
-    var viewdata = { 'title' : 'getip.dev', 'ipv6': ipv6, 'ipv4': ipv4, 'internalIpv4': internalIpv4};
+    var viewdata = { 'title' : 'getip.dev', 'ip': ip };
 
     res.render('index', viewdata);
 });
