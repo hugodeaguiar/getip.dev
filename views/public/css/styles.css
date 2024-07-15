@@ -290,3 +290,7 @@ h1 {
     font-size: 120%;
     margin: 0;
 }
+
+h2.second-title {
+    color: white;
+}

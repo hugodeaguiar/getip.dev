@@ -1,19 +1,29 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt_BR">
 <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DT6ZK3NM44"></script>
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-DT6ZK3NM44"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
     gtag('config', 'G-DT6ZK3NM44');
+    </script> -->
+
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "GetIP.dev",
+          "url": "https://getip.dev",
+          "description": "Descubra seu endereço IP atual de forma rápida e fácil."
+        }
     </script>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Quickly discover your public addresses with our intuitive app. Easily view your IPv4, IPv6, and internal IP. Ideal for developers and tech enthusiasts who need precise network information.">
+    <meta name="description" content="Qual é meu IP - Descubra seu endereço IP atual com GetIP.dev, a ferramenta ideal para ajudar a solucionar problemas de rede e segurança.">
     <title>{{ title }}</title>
     <link rel="stylesheet" href="/css/pure-min.css">
     <link rel="stylesheet" href="/css/grids-responsive-min.css">
@@ -24,24 +34,25 @@
     <div class="header">
         <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
             <h1>
-                <a class="pure-menu-heading" href="/">{{ title }}</a>
+                <a class="pure-menu-heading" href="/">GetIP.dev</a>
             </h1>
         </div>
     </div>
 
     <div class="splash-container">
         <div class="splash">
+            <h2 class="second-title">Seu endereço de IP atual:</h2>
             <div class="splash-head">
-                IP: {{ ip }}
+                {{ ip }}
             </div>
             <p class="splash-subhead">
-                Your current IP addresses. Important for network troubleshooting and security.
+                Descubra seu endereço IP atual com GetIP.dev, a ferramenta ideal para ajudar a solucionar problemas de rede e segurança.
             </p>
         </div>
     </div>
 
     <div class="footer l-box is-center">
-        Copyright © 2024 - All rights reserved by <a href="https://www.linkedin.com/in/hugodeaguiar/?locale=en_US" target="_blank">Hugo Aguiar</a>
+        Copyright © 2024 - Todos os direitos reservados para <a href="https://www.linkedin.com/in/hugodeaguiar/?locale=en_US" target="_blank">Hugo Aguiar</a>
     </div>
 </div>
 </body>

@@ -17,7 +17,15 @@ app.use(express.static('views/public'))
 app.get('/', async (req, res) => {
     const ip = req.ip;
 
-    var viewdata = { 'title' : 'getip.dev', 'ip': ip };
+    var viewdata = { 'title' : 'GetIP.dev - Qual é meu IP?', 'ip': ip };
+
+    res.render('index', viewdata);
+});
+
+app.get('/qual-e-meu-ip', async (req, res) => {
+    const ip = req.ip;
+
+    var viewdata = { 'title' : 'GetIP.dev - Qual é meu IP?', 'ip': ip };
 
     res.render('index', viewdata);
 });
