@@ -2,6 +2,7 @@ import express from 'express';
 import consolidate from 'consolidate';
 import https from 'https';
 
+const getinfo_token = "d497f952b8b33f";
 const app = express();
 
 app.set('trust proxy', true);
@@ -15,11 +16,11 @@ app.set('view engine', 'html');
 app.set('views', './views');
 app.use(express.static('views/public'))
 
-function getIPV6(callback) {
+function getIPInfo(callback, ip) {
     const options = {
-        hostname: 'ipv6.icanhazip.com',
+        hostname: 'ipinfo.io',
         port: 443,
-        path: '/',
+        path: '/' + ip + '/?token=' + getinfo_token,
         method: 'GET',
         timeout: 3000 // Timeout in milliseconds (3 seconds)
     };
@@ -34,7 +35,7 @@ function getIPV6(callback) {
 
         // The whole response has been received. Print out the result.
         resp.on('end', () => {
-            callback(data.trim());
+            callback(data);
         });
     });
 
@@ -52,14 +53,14 @@ function getIPV6(callback) {
 
 
 app.get('/', async (req, res) => {
-    console.log(req);
     const ip = req.ip;
-    getIPV6((ipv6) => {
-        ipv6 = ipv6 ? ipv6 : "Não encontrado."
-        var viewdata = { 'title' : 'GetIP.dev - Qual é meu IP?', 'ip': ip, 'ipv6': ipv6 };
+    getIPInfo((info) => {
+        info = JSON.parse(info);
+
+        var viewdata = { 'title' : 'GetIP.dev - Qual é meu IP?', 'ip': ip, 'ipinfo' : info};
 
         res.render('index', viewdata);
-    })
+    }, ip)
 
 
 });

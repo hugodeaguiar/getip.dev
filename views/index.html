@@ -43,10 +43,20 @@
         <div class="splash">
             <h2 class="second-title">Seu endereço de IP atual:</h2>
             <div class="splash-head">
-                <span>IPV4: {{ ip }}</span>
-                <br><br>
-                <span>IPV6: {{ ipv6 }}</span>
+                <span>{{ ip }}</span>
             </div>
+            <br>
+            <div class="pure-g ipinfo">
+                <div class="pure-u-1">
+                    <ul class="pure-menu-list">
+                        <li class="pure-menu-item"><strong>Cidade:</strong> {{ipinfo.city}}{{^ipinfo.city}}Não identificada.{{/ipinfo.city}}</li>
+                        <li class="pure-menu-item"><strong>Estado:</strong> {{ipinfo.region}}{{^ipinfo.region}}Não identificado.{{/ipinfo.region}}</li>
+                        <li class="pure-menu-item"><strong>País:</strong> {{ipinfo.country}}{{^ipinfo.country}}Não identificado.{{/ipinfo.country}}</li>
+                        <li class="pure-menu-item"><strong>Provedor:</strong> {{ipinfo.org}}{{^ipinfo.org}}Não identificado.{{/ipinfo.org}}</li>
+                    </ul>
+                </div>
+            </div>
+
             <p class="splash-subhead">
                 Descubra seu endereço IP atual com GetIP.dev, a ferramenta ideal para ajudar a solucionar problemas de rede e segurança.
             </p>
