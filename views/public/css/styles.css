@@ -149,7 +149,7 @@ a.pure-button-primary {
     height: 50%;
     margin: auto;
     position: absolute;
-    top: 100px; left: 0; bottom: 0; right: 0;
+    top: 30px; left: 0; bottom: 0; right: 0;
     text-align: center;
     text-transform: uppercase;
 }
@@ -293,4 +293,8 @@ h1 {
 
 h2.second-title {
     color: white;
+}
+
+p.splash-subhead {
+    margin: 0;
 }
