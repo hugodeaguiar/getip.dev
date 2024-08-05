@@ -29,6 +29,12 @@
     <link rel="stylesheet" href="/css/grids-responsive-min.css">
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <link rel="stylesheet" href="/css/styles.css">
+
+    <style>
+        .footer {
+            position: relative;
+        }
+    </style>
 </head>
 <body>
     <div class="header">
@@ -39,29 +45,47 @@
         </div>
     </div>
 
-    <div class="splash-container">
-        <div class="splash">
-            <p class="splash-subhead">
-                Descubra seu endereço IP atual com GetIP.dev, a ferramenta ideal para ajudar a solucionar problemas de rede e segurança.
+    <div class="pure-g privacy-policy">
+        <div class="content">
+            <h2>1. Informações Coletadas</h2>
+
+            <p>
+                Quando você visita o nosso site, utilizamos o Google Tag Manager para monitorar e analisar as interações dos usuários. As informações coletadas podem incluir:
+
+                <ol>
+                    <li>Dados de navegação (páginas visitadas, tempo de permanência, cliques, etc.)</li>
+                    <li>Endereço IP (que pode ser utilizado para determinar a localização geográfica)</li>
+                    <li>Informações sobre o dispositivo e navegador utilizado</li>
+                </ol>
             </p>
             
-            <h2 class="second-title">Seu endereço de IP atual:</h2>
-            <div class="splash-head">
-                <span>{{ ip }}</span>
-            </div>
-            <br>
-            <div class="pure-g ipinfo">
-                <div class="pure-u-1">
-                    <ul class="pure-menu-list">
-                        <li class="pure-menu-item"><strong>Cidade:</strong> {{ipinfo.city}}{{^ipinfo.city}}Não identificada.{{/ipinfo.city}}</li>
-                        <li class="pure-menu-item"><strong>Estado:</strong> {{ipinfo.region}}{{^ipinfo.region}}Não identificado.{{/ipinfo.region}}</li>
-                        <li class="pure-menu-item"><strong>País:</strong> {{ipinfo.country}}{{^ipinfo.country}}Não identificado.{{/ipinfo.country}}</li>
-                        <li class="pure-menu-item"><strong>Provedor:</strong> {{ipinfo.org}}{{^ipinfo.org}}Não identificado.{{/ipinfo.org}}</li>
-                    </ul>
-                </div>
-            </div>
+
+            <h2>2. Uso das Informações</h2>
+            
+            <p>As informações coletadas são utilizadas exclusivamente para:</p>
+            
+            <ol>
+                <li>Melhorar a experiência do usuário no site</li>
+                <li>Entender como os visitantes interagem com nosso conteúdo</li>
+                <li>Realizar análises estatísticas para otimizar a performance do site</li>
+            </ol>
+            
+            <h2>3. Compartilhamento de Informações</h2>
+            <p>Nós não vendemos, trocamos ou de outra forma transferimos para terceiros as suas informações pessoais identificáveis. As informações coletadas pelo Google Tag Manager são armazenadas e gerenciadas pelo Google, em conformidade com a política de privacidade do Google.</p>
+            
+            <h2>4. Cookies</h2>
+            <p>O nosso site pode utilizar cookies para armazenar informações temporárias e melhorar a sua experiência de navegação. Você pode optar por desativar os cookies nas configurações do seu navegador, mas isso pode afetar a funcionalidade do site.</p>
+            
+            <h2>5. Segurança das Informações</h2>
+            <p>Adotamos medidas de segurança adequadas para proteger as suas informações pessoais contra acessos não autorizados, alteração, divulgação ou destruição.</p>
+            
+            <h2>6. Alterações na Política de Privacidade</h2>
+            <p>Reservamos o direito de atualizar esta política de privacidade periodicamente. Qualquer alteração será publicada nesta página, e a data de modificação será atualizada no topo da página.</p>
+            
+            <h2>7. Contato</h2>
+            <p>Se você tiver alguma dúvida sobre esta política de privacidade, entre em contato conosco através do contact@noffort.co.</p>
         </div>
-    </div>
+    </div>  
 
     <div class="footer l-box is-center">
         Copyright © 2024 - Todos os direitos reservados para <a href="https://www.linkedin.com/in/hugodeaguiar/?locale=en_US" target="_blank">Hugo Aguiar</a>

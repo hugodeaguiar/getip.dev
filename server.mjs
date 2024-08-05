@@ -61,8 +61,12 @@ app.get('/', async (req, res) => {
 
         res.render('index', viewdata);
     }, ip)
+});
 
+app.get('/politica-de-privacidade', async (req, res) => {
+    var viewdata = { 'title' : 'GetIP.dev - Política de Privacidade'};
 
+    res.render('privacy-policy');
 });
 
 app.get('/qual-e-meu-ip', async (req, res) => {
