@@ -108,7 +108,7 @@ a.pure-button-primary {
 .home-menu .pure-menu-heading {
     color: white;
     font-weight: 400;
-    font-size: 120%;
+    font-size: 180%;
 }
 
 .home-menu .pure-menu-selected a {
@@ -320,3 +320,10 @@ p.splash-subhead {
 .privacy-policy {
     margin-top: 100px;
 }
+
+.jersey-10-regular {
+    font-family: "Jersey 10", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
