@@ -12,7 +12,7 @@ Public-IP is a web application that allows users to discover their current IP ad
 1. Clone the repository:
     ```sh
     git clone https://github.com/hugodeaguiar/public-ip.git
-    cd ip-tracker
+    cd public-ip
     ```
 
 2. Install dependencies:
