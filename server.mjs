@@ -2,7 +2,6 @@ import express from 'express';
 import consolidate from 'consolidate';
 import https from 'https';
 
-const getinfo_token = "d497f952b8b33f";
 const app = express();
 
 app.set('trust proxy', true);
@@ -20,7 +19,7 @@ function getIPInfo(callback, ip) {
     const options = {
         hostname: 'ipinfo.io',
         port: 443,
-        path: '/' + ip + '/?token=' + getinfo_token,
+        path: '/' + ip + '/?token=' + process.env.GETINFO_TOKEN,
         method: 'GET',
         timeout: 3000 // Timeout in milliseconds (3 seconds)
     };
