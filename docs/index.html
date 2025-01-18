@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GetIp.dev Documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/2.0.6/pure-min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background: #2d3e50;
+            color: white;
+            padding: 1em;
+            text-align: center;
+        }
+        .content {
+            padding: 2em;
+        }
+        .footer {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>GetIP.dev Documentation</h1>
+    </div>
+    <div class="content">
+        <h2>Introduction</h2>
+        <p>GetIP is a web application built with Node.js and Express that allows users to discover their current IP address and related information.</p>
+
+        <h2>Features</h2>
+        <ul>
+            <li>Display public IP address</li>
+            <li>Show IP-related information such as city, region, country, and ISP</li>
+        </ul>
+
+        <h2>Installation</h2>
+        <ol>
+            <li>Fork the repository on GitHub.</li>
+            <li>Clone the repository:
+                <pre><code>git clone git@github.com:your-username/getip.dev.git
+cd getip.dev</code></pre>
+            </li>
+            <li>Install dependencies:
+                <pre><code>npm install</code></pre>
+            </li>
+            <li>Configure the environment variables:
+                <pre><code>echo "GETINFO_TOKEN=your_token_here" > .env</code></pre>
+            </li>
+            <li>Start the server:
+                <pre><code>npm run dev</code></pre>
+            </li>
+        </ol>
+        <p>The application will be available at <code>http://localhost:3001</code>.</p>
+
+        <h2>IP Information Source</h2>
+        <p>This application uses the <a href="https://ipinfo.io">ipinfo.io</a> service to get information related to the IP address. You need to configure the <code>GETINFO_TOKEN</code> environment variable with your ipinfo.io API token.</p>
+
+        <h2>Contributing</h2>
+        <p>Contributions are welcome! Please open an issue or submit a pull request. See the <a href="https://github.com/hugodeaguiar/public-ip/blob/main/CONTRIBUTING.md">CONTRIBUTING</a> file for more details.</p>
+
+        <h2>License</h2>
+        <p>This project is licensed under the MIT License - see the <a href="https://github.com/hugodeaguiar/public-ip/blob/main/LICENSE">LICENSE</a> file for details.</p>
+    </div>
+    <div class="footer">
+        <p>© 2025 Hugo Aguiar</p>
+        <!-- Place this tag where you want the button to render. -->
+        <a class="github-button" href="https://github.com/hugodeaguiar/public-ip/fork" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-repo-forked" data-size="large" aria-label="Fork hugodeaguiar/public-ip on GitHub">Fork</a>
+    </div>
+    
+    <!-- Load the GitHub buttons script -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+</body>
+</html>

@@ -9,21 +9,7 @@ Public-IP is a web application that allows users to discover their current IP ad
 
 ## Installation
 
-1. Clone the repository:
-    ```sh
-    git clone https://github.com/hugodeaguiar/public-ip.git
-    cd public-ip
-    ```
-
-2. Install dependencies:
-    ```sh
-    npm install
-    ```
-
-3. Start the server:
-    ```sh
-    npm start
-    ```
+Please check https://docs.getip.dev
 
 The application will be available at `http://localhost:3001`.
 
