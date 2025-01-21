@@ -161,12 +161,4 @@ app.get('/en/privacy-policy', async (req, res) => {
     }, 300);
 });
 
-app.get('/qual-e-meu-ip', async (req, res) => {
-    const ip = req.ip;
-
-    var viewdata = { 'title' : i18next.t('title'), 'ip': ip };
-
-    res.render('index', viewdata);
-});
-
 app.listen(3001, () => console.log(`Server is listening on port 3001`));
