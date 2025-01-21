@@ -45,10 +45,10 @@
     <div class="splash-container">
         <div class="splash">
             <p class="splash-subhead">
-                Descubra seu endereço IP atual com GetIP.dev, a ferramenta ideal para ajudar a solucionar problemas de rede e segurança.
+                {{ home_description }}
             </p>
             
-            <h2 class="second-title">Seu endereço de IP atual:</h2>
+            <h2 class="second-title">{{ your_current_ip }}</h2>
             <div class="splash-head">
                 <span>{{ ip }}</span>
             </div>
@@ -56,10 +56,10 @@
             <div class="pure-g ipinfo">
                 <div class="pure-u-1">
                     <ul class="pure-menu-list">
-                        <li class="pure-menu-item"><strong>Cidade:</strong> {{ipinfo.city}}{{^ipinfo.city}}Não identificada.{{/ipinfo.city}}</li>
-                        <li class="pure-menu-item"><strong>Estado:</strong> {{ipinfo.region}}{{^ipinfo.region}}Não identificado.{{/ipinfo.region}}</li>
-                        <li class="pure-menu-item"><strong>País:</strong> {{ipinfo.country}}{{^ipinfo.country}}Não identificado.{{/ipinfo.country}}</li>
-                        <li class="pure-menu-item"><strong>Provedor:</strong> {{ipinfo.org}}{{^ipinfo.org}}Não identificado.{{/ipinfo.org}}</li>
+                        <li class="pure-menu-item"><strong>{{ city }}</strong> {{ipinfo.city}}{{^ipinfo.city}}Não identificada.{{/ipinfo.city}}</li>
+                        <li class="pure-menu-item"><strong>{{ region }}</strong> {{ipinfo.region}}{{^ipinfo.region}}Não identificado.{{/ipinfo.region}}</li>
+                        <li class="pure-menu-item"><strong>{{ country }}</strong> {{ipinfo.country}}{{^ipinfo.country}}Não identificado.{{/ipinfo.country}}</li>
+                        <li class="pure-menu-item"><strong>{{ provider }}</strong> {{ipinfo.org}}{{^ipinfo.org}}Não identificado.{{/ipinfo.org}}</li>
                     </ul>
                 </div>
             </div>
@@ -67,13 +67,13 @@
     </div>
 
     <div class="footer l-box is-center">
-        Copyright © 2024 - Todos os direitos reservados para <a href="https://www.linkedin.com/in/hugodeaguiar/?locale=en_US" target="_blank">Hugo Aguiar</a>
+        Copyright © 2024 - 2025 - A project by <a href="https://www.linkedin.com/in/hugodeaguiar/?locale=en_US" target="_blank">Hugo Aguiar</a>
     </div>
 </div>
 
 <!-- Cookie Consent Popup -->
 <div class="cookie-consent-popup" id="cookieConsentPopup">
-    <p>Utilizamos cookies para garantir que você tenha a melhor experiência em nosso site.<a href="/politica-de-privacidade" style="color: #ffd700;"> Saiba Mais</a></p>
+    <p>{{ cookie_consent }}<a href="/politica-de-privacidade" style="color: #ffd700;"> {{ see_more }}</a></p>
     <button class="pure-button pure-button-primary" id="acceptCookies">Ok</button>
 </div>
 
