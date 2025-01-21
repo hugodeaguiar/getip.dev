@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt_BR">
+<html lang="{{ html_lang }}">
 <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DT6ZK3NM44"></script>
@@ -55,54 +55,54 @@
 
     <div class="pure-g privacy-policy">
         <div class="content">
-            <h2>1. Informações Coletadas</h2>
+            <h2>1. {{ pp_info }}</h2>
 
             <p>
-                Quando você visita o nosso site, utilizamos o Google Tag Manager para monitorar e analisar as interações dos usuários. As informações coletadas podem incluir:
+                {{ pp_info_1 }}
 
                 <ol>
-                    <li>Dados de navegação (páginas visitadas, tempo de permanência, cliques, etc.)</li>
-                    <li>Endereço IP (que pode ser utilizado para determinar a localização geográfica)</li>
-                    <li>Informações sobre o dispositivo e navegador utilizado</li>
+                    <li>{{ pp_info_1_1 }}</li>
+                    <li>{{ pp_info_1_2 }}</li>
+                    <li>{{ pp_info_1_3 }}</li>
                 </ol>
             </p>
             
 
-            <h2>2. Uso das Informações</h2>
+            <h2>2. {{ pp_use }}</h2>
             
-            <p>As informações coletadas são utilizadas exclusivamente para:</p>
+            <p>{{ pp_use_1 }}</p>
             
             <ol>
-                <li>Melhorar a experiência do usuário no site</li>
-                <li>Entender como os visitantes interagem com nosso conteúdo</li>
-                <li>Realizar análises estatísticas para otimizar a performance do site</li>
+                <li>{{ pp_use_1_1 }}</li>
+                <li>{{ pp_use_1_2 }}</li>
+                <li>{{ pp_use_1_3 }}</li>
             </ol>
             
-            <h2>3. Compartilhamento de Informações</h2>
-            <p>Nós não vendemos, trocamos ou de outra forma transferimos para terceiros as suas informações pessoais identificáveis. As informações coletadas pelo Google Tag Manager são armazenadas e gerenciadas pelo Google, em conformidade com a política de privacidade do Google.</p>
+            <h2>3. {{ pp_share }}</h2>
+            <p>{{ pp_share_description }}</p>
             
-            <h2>4. Cookies</h2>
-            <p>O nosso site pode utilizar cookies para armazenar informações temporárias e melhorar a sua experiência de navegação. Você pode optar por desativar os cookies nas configurações do seu navegador, mas isso pode afetar a funcionalidade do site.</p>
+            <h2>4. {{ pp_cookies }}</h2>
+            <p>{{ pp_cookie_description }}</p>
             
-            <h2>5. Segurança das Informações</h2>
-            <p>Adotamos medidas de segurança adequadas para proteger as suas informações pessoais contra acessos não autorizados, alteração, divulgação ou destruição.</p>
+            <h2>5. {{ pp_security }}</h2>
+            <p>{{ pp_security_description }}</p>
             
-            <h2>6. Alterações na Política de Privacidade</h2>
-            <p>Reservamos o direito de atualizar esta política de privacidade periodicamente. Qualquer alteração será publicada nesta página, e a data de modificação será atualizada no topo da página.</p>
+            <h2>6. {{ pp_updates }}</h2>
+            <p>{{ pp_updates_description }}</p>
             
-            <h2>7. Contato</h2>
-            <p>Se você tiver alguma dúvida sobre esta política de privacidade, entre em contato conosco através do contact@noffort.co.</p>
+            <h2>7. {{ pp_contact }}</h2>
+            <p>{{ pp_contact_description }}</p>
         </div>
     </div>  
 
     <div class="footer l-box is-center">
-        Copyright © 2024 - Todos os direitos reservados para <a href="https://www.linkedin.com/in/hugodeaguiar/?locale=en_US" target="_blank">Hugo Aguiar</a>
+        Copyright © 2024 - 2025 - A project by <a href="https://www.linkedin.com/in/hugodeaguiar/?locale=en_US" target="_blank">Hugo Aguiar</a>
     </div>
 </div>
 
 <!-- Cookie Consent Popup -->
 <div class="cookie-consent-popup" id="cookieConsentPopup">
-    <p>Utilizamos cookies para garantir que você tenha a melhor experiência em nosso site.<a href="/politica-de-privacidade" style="color: #ffd700;"> Saiba Mais</a></p>
+    <p>{{ cookie_consent }}<a href="/politica-de-privacidade" style="color: #ffd700;"> {{ see_more }}</a></p>
     <button class="pure-button pure-button-primary" id="acceptCookies">Ok</button>
 </div>
 

@@ -12,7 +12,12 @@
   "license": "ISC",
   "dependencies": {
     "consolidate": "^1.0.3",
+    "env": "^0.0.2",
     "express": "^4.17.1",
+    "i18next": "^24.2.1",
+    "i18next-browser-languagedetector": "^8.0.2",
+    "i18next-fs-backend": "^2.6.0",
+    "i18next-http-middleware": "^3.7.1",
     "internal-ip": "^8.0.0",
     "mustache": "^4.2.0",
     "public-ip": "^6.0.2"
