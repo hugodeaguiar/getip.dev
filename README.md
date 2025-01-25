@@ -7,7 +7,7 @@ Public-IP is a web application that allows users to discover their current IP ad
 - Display public IP address
 - Display public IP address in curl requests
 ```
-curl https://getip.dev
+curl -L getip.dev
 ```
 - Show IP-related information such as city, region, country, and ISP
 
