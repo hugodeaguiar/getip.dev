@@ -73,6 +73,7 @@ function generateHomeViewData(lang, ip, info) {
         'title' : i18next.t('title'), 
         'ip': ip, 
         'ipinfo' : info,
+        'ipinfo_domain' : ip.includes(':') ? 'ipinfo.io': 'v6.ipinfo.io',
         'home_description': i18next.t('home-description'),
         'html_lang': lang == 'en' ? 'en' : 'pt_BR',
         'your_current_ip': i18next.t('your-current-ip'),
@@ -134,7 +135,6 @@ app.get('/en', async (req, res) => {
     const ip = req.ip;
     getIPInfo((info) => {
         info = JSON.parse(info);
-
         var viewdata = generateHomeViewData('pt', ip, info);
 
         res.render('index', viewdata);
