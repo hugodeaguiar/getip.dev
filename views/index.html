@@ -88,13 +88,19 @@
 
 <script>
     const featchData = fetch("https://{{ ipinfo_domain }}?callback")
-        .then(response => response.json())
+        .then(response => { 
+            if (response.status !== 200) {
+                throw Error();
+            }
+            return response.json()})
         .then(data => {
             if (data.ip != "{{ ip }}" && data.ip != "") {
                 const newSpan = document.createElement('p');
                 newSpan.textContent = data.ip;
                 document.querySelector('.splash-head').appendChild(newSpan);
             }
+        }).catch(error => {
+            console.log("Could not obtain second IP");
         });
 </script>
 
