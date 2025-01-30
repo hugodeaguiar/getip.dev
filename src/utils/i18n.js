@@ -18,6 +18,6 @@ export function initI18n(lang) {
             fallbackLng: 'en',
             preload: ['en', 'pt'],
             lowerCaseLng: true,
-            debug: true
+            debug: false
         });
 }
