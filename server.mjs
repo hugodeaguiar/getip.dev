@@ -1,8 +1,7 @@
 import express from 'express';
 import consolidate from 'consolidate';
-import { getIPInfo } from './utils/ipInfo.js';
-import { initI18n } from './utils/i18n.js';
-import { generateHomeViewData, generatePPViewData } from './utils/viewData.js';
+import { homeController } from './controllers/homeController.js';
+import { privacyPolicyController } from './controllers/privacyPolicyController.js';
 
 const app = express();
 app.set('trust proxy', true);
@@ -25,42 +24,7 @@ const languageMiddleware = (req, res, next) => {
 
 app.use(languageMiddleware);
 
-app.get('/', async (req, res) => {
-    const ip = req.ip;
-    getIPInfo((info) => {
-        info = JSON.parse(info);
-
-        var viewdata = generateHomeViewData(req.lang, ip, info);
-
-        res.render('index', viewdata);
-    }, ip)
-});
-
-app.get('/en', async (req, res) => {
-    const ip = req.ip;
-    getIPInfo((info) => {
-        info = JSON.parse(info);
-
-        var viewdata = generateHomeViewData(req.lang, ip, info);
-
-        res.render('index', viewdata);
-    }, ip)
-});
-
-app.get('/politica-de-privacidade', async (req, res) => {
-    setTimeout(() => {
-        var viewdata = generatePPViewData(req.lang);
-
-        res.render('privacy-policy', viewdata);
-    }, 300);
-});
-
-app.get('/en/privacy-policy', async (req, res) => {
-    setTimeout(() => {
-        var viewdata = generatePPViewData(req.lang);
-
-        res.render('privacy-policy', viewdata);
-    }, 300);
-});
+app.get(['/', '/en'], homeController);
+app.get(['/politica-de-privacidade', '/en/privacy-policy'], privacyPolicyController);
 
 app.listen(3001, () => console.log(`Server is listening on port 3001`));
