@@ -4,8 +4,8 @@
   "description": "",
   "main": "server.mjs",
   "scripts": {
-    "start": "node server.mjs",
-    "dev": "node server.mjs"
+    "start": "node src/server.mjs",
+    "dev": "node src/server.mjs"
   },
   "keywords": [],
   "author": "",
