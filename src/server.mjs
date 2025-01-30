@@ -32,5 +32,8 @@ app.use(languageMiddleware);
 
 app.get(['/', '/en'], homeController);
 app.get(['/politica-de-privacidade', '/en/privacy-policy'], privacyPolicyController);
+app.use((req, res) => {
+    homeController(req, res);
+});
 
 app.listen(3001, () => console.log(`Server is listening on port 3001`));
