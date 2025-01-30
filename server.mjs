@@ -16,47 +16,48 @@ app.set('view engine', 'html');
 app.set('views', './views');
 app.use(express.static('views/public'))
 
-app.get('/', async (req, res) => {
-    initI18n('pt');
+const languageMiddleware = (req, res, next) => {
+    const lang = req.path.startsWith('/en') ? 'en' : 'pt';
+    initI18n(lang);
+    req.lang = lang;
+    next();
+};
 
+app.use(languageMiddleware);
+
+app.get('/', async (req, res) => {
     const ip = req.ip;
     getIPInfo((info) => {
         info = JSON.parse(info);
 
-        var viewdata = generateHomeViewData('pt', ip, info);
+        var viewdata = generateHomeViewData(req.lang, ip, info);
 
         res.render('index', viewdata);
     }, ip)
 });
 
 app.get('/en', async (req, res) => {
-    initI18n('en');
-
     const ip = req.ip;
     getIPInfo((info) => {
         info = JSON.parse(info);
 
-        var viewdata = generateHomeViewData('en', ip, info);
+        var viewdata = generateHomeViewData(req.lang, ip, info);
 
         res.render('index', viewdata);
     }, ip)
 });
 
 app.get('/politica-de-privacidade', async (req, res) => {
-    initI18n('pt');
-
     setTimeout(() => {
-        var viewdata = generatePPViewData('pt');
+        var viewdata = generatePPViewData(req.lang);
 
         res.render('privacy-policy', viewdata);
     }, 300);
 });
 
 app.get('/en/privacy-policy', async (req, res) => {
-    initI18n('en');
-
     setTimeout(() => {
-        var viewdata = generatePPViewData('en');
+        var viewdata = generatePPViewData(req.lang);
 
         res.render('privacy-policy', viewdata);
     }, 300);
