@@ -7,8 +7,8 @@ export const homeController = async (req, res) => {
 
         var viewdata = {
             'ip': ip,
-            'ipinfo': info,
-        }
+            'ipinfo': info
+        };
 
         res.render('index', viewdata);
     }, ip);
