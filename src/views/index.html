@@ -13,9 +13,9 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{{ home_description }}">
+    <meta name="description" content="{{ Discover your current IP address with GetIP.dev, the ideal tool to help troubleshoot network and security issues. }}">
+    <title>{{ GetIP.dev - Privacy Policy }}</title>
     <link rel="icon" type="image/png" href="/images/globe.png">
-    <title>{{ title }}</title>
     <link rel="stylesheet" href="/css/pure-min.css">
     <link rel="stylesheet" href="/css/grids-responsive-min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,10 +35,10 @@
     <div class="splash-container">
         <div class="splash">
             <p class="splash-subhead">
-                {{ home_description }}
+                {{ Discover your current IP address with GetIP.dev, the ideal tool to help troubleshoot network and security issues. }}
             </p>
-            
-            <h2 class="second-title">{{ your_current_ip }}</h2>
+
+            <h2 class="second-title">{{ Your current IP address: }}</h2>
             <div class="splash-head">
                 <span>{{ ip }}</span>
             </div>
@@ -46,10 +46,10 @@
             <div class="pure-g ipinfo">
                 <div class="pure-u-1">
                     <ul class="pure-menu-list">
-                        <li class="pure-menu-item"><strong>{{ city }}</strong> {{ipinfo.city}}{{^ipinfo.city}}Não identificada.{{/ipinfo.city}}</li>
-                        <li class="pure-menu-item"><strong>{{ region }}</strong> {{ipinfo.region}}{{^ipinfo.region}}Não identificado.{{/ipinfo.region}}</li>
-                        <li class="pure-menu-item"><strong>{{ country }}</strong> {{ipinfo.country}}{{^ipinfo.country}}Não identificado.{{/ipinfo.country}}</li>
-                        <li class="pure-menu-item"><strong>{{ provider }}</strong> {{ipinfo.org}}{{^ipinfo.org}}Não identificado.{{/ipinfo.org}}</li>
+                        <li class="pure-menu-item"><strong>{{ City: }}</strong> {{ipinfo.city}}{{^ipinfo.city}}{{"Não identificada."}}{{/ipinfo.city}}</li>
+                        <li class="pure-menu-item"><strong>{{ Region: }}</strong> {{ipinfo.region}}{{^ipinfo.region}}{{"Não identificado."}}{{/ipinfo.region}}</li>
+                        <li class="pure-menu-item"><strong>{{ Country: }}</strong> {{ipinfo.country}}{{^ipinfo.country}}{{"Não identificado."}}{{/ipinfo.country}}</li>
+                        <li class="pure-menu-item"><strong>{{ Provider: }}</strong> {{ipinfo.org}}{{^ipinfo.org}}{{"Não identificado."}}{{/ipinfo.org}}</li>
                     </ul>
                 </div>
             </div>
@@ -67,7 +67,7 @@
 
 <!-- Cookie Consent Popup -->
 <div class="cookie-consent-popup" id="cookieConsentPopup">
-    <p>{{ cookie_consent }}<a href="/politica-de-privacidade" style="color: #ffd700;"> {{ see_more }}</a></p>
+    <p>{{ We use cookies to ensure you have the best experience on our site. }}<a href="/politica-de-privacidade" style="color: #ffd700;"> {{ See more }}</a></p>
     <button class="pure-button pure-button-primary" id="acceptCookies">Ok</button>
 </div>
 
