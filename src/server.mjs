@@ -1,8 +1,8 @@
 import express from 'express';
-import consolidate from 'consolidate';
 import path from 'path';
 import { initI18n } from './utils/i18n.js';
 import { homeController } from './controllers/homeController.js';
+import { i18nMustacheEngine } from './utils/i18nMustacheEngine.js';
 import { privacyPolicyController } from './controllers/privacyPolicyController.js';
 import { fileURLToPath } from 'url';
 
@@ -13,11 +13,9 @@ const app = express();
 app.set('trust proxy', true);
 
 // set .html as the default extension
+app.engine('html', i18nMustacheEngine);
 app.set('view engine', 'html');
 app.set('views', path.join(__dirname, 'views'));
-
-// assign the mustache engine to .html files
-app.engine('html', consolidate.mustache);
 
 app.use(express.static(path.join(__dirname, 'views', 'public')))
 
