@@ -1,11 +1,12 @@
 import dotenv from 'dotenv';
 import express from 'express';
-import consolidate from 'consolidate';
 import path from 'path';
-import { initI18n } from './utils/i18n.js';
+import { i18n } from './utils/i18n.js';
 import { homeController } from './controllers/homeController.js';
+import { i18nMustacheEngine } from './utils/i18nMustacheEngine.js';
 import { privacyPolicyController } from './controllers/privacyPolicyController.js';
 import { fileURLToPath } from 'url';
+import cookieParser from 'cookie-parser';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -16,25 +17,33 @@ const app = express();
 app.set('trust proxy', true);
 
 // set .html as the default extension
+app.engine('html', i18nMustacheEngine);
 app.set('view engine', 'html');
 app.set('views', path.join(__dirname, 'views'));
 
-// assign the mustache engine to .html files
-app.engine('html', consolidate.mustache);
-
+app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'views', 'public')))
+app.use((req, res, next) => {
+    let lang = 'pt_BR';
+    if (req.cookies && req.cookies.selectedLanguage) {
+        lang = req.cookies.selectedLanguage;
+    } else if (req.path.startsWith('/en')) {
+        lang = 'en_US';
+    } else if (req.path.startsWith('/pt')) {
+        lang = 'pt_BR';
+    } else if (req.path.startsWith('/es')) {
+        lang = 'es_ES';
+    }
+    i18n.changeLanguage(lang, (err) => {
+        if (err) {
+            console.error('Error setting language', err);
+        }
+        next();
+    });
+});
 
-const languageMiddleware = (req, res, next) => {
-    const lang = req.path.startsWith('/en') ? 'en' : 'pt';
-    initI18n(lang);
-    req.lang = lang;
-    next();
-};
-
-app.use(languageMiddleware);
-
-app.get(['/', '/en'], homeController);
-app.get(['/politica-de-privacidade', '/en/privacy-policy'], privacyPolicyController);
+app.get(['/', '/en', '/es'], homeController);
+app.get(['/politica-de-privacidade', '/en/privacy-policy', '/es/politica-de-privacidad'], privacyPolicyController);
 app.use((req, res) => {
     homeController(req, res);
 });
