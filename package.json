@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "consolidate": "^1.0.3",
+    "dotenv": "^16.4.7",
     "env": "^0.0.2",
     "express": "^4.17.1",
     "i18next": "^24.2.1",
