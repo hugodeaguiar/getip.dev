@@ -44,6 +44,9 @@
             <h1>
                 <a class="pure-menu-heading jersey-10-regular" title="getip.dev" href="/">GetIP.dev</a>
             </h1>
+            <select id="languageSelector" class="pure-menu-item">
+                <!-- Options will be populated dynamically -->
+            </select>
         </div>
     </div>
 
@@ -117,16 +120,62 @@
     </div>
 
     <script>
+        // Helper function to set a cookie
+        function setCookie(name, value, days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            const expires = "expires=" + date.toUTCString();
+            document.cookie = name + "=" + value + ";" + expires + ";path=/";
+        }
+
+        // Helper function to get a cookie
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        // Populate language selector with options from available CSV files
+        document.addEventListener('DOMContentLoaded', function () {
+            const languages = {
+                'en_US': 'en',
+                'pt_BR': 'pt',
+                'es_ES': 'es'
+            }; // Example languages, replace with actual CSV file names
+            const languageSelector = document.getElementById('languageSelector');
+            const currentLang = getCookie('selectedLanguage') || 'en';
+
+            for (const [lang, locale] of Object.entries(languages)) {
+                const option = document.createElement('option');
+                option.value = lang;
+                option.textContent = locale;
+                if (lang === currentLang) {
+                    option.selected = true;
+                }
+                languageSelector.appendChild(option);
+            }
+
+            languageSelector.addEventListener('change', function () {
+                setCookie('selectedLanguage', this.value, 365);
+                location.reload();
+            });
+        });
+
         // Show the cookie consent popup if not already accepted
         document.addEventListener('DOMContentLoaded', function () {
-            if (!localStorage.getItem('cookieConsent')) {
+            if (!getCookie('cookieConsent')) {
                 document.getElementById('cookieConsentPopup').style.display = 'block';
             }
         });
 
         // Handle the accept button click
         document.getElementById('acceptCookies').addEventListener('click', function () {
-            localStorage.setItem('cookieConsent', 'accepted');
+            setCookie('cookieConsent', 'accepted', 365);
             document.getElementById('cookieConsentPopup').style.display = 'none';
         });
     </script>

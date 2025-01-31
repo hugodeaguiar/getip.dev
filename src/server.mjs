@@ -5,6 +5,7 @@ import { homeController } from './controllers/homeController.js';
 import { i18nMustacheEngine } from './utils/i18nMustacheEngine.js';
 import { privacyPolicyController } from './controllers/privacyPolicyController.js';
 import { fileURLToPath } from 'url';
+import cookieParser from 'cookie-parser';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -17,20 +18,19 @@ app.engine('html', i18nMustacheEngine);
 app.set('view engine', 'html');
 app.set('views', path.join(__dirname, 'views'));
 
+app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'views', 'public')))
 app.use((req, res, next) => {
-    let lang = 'pt_BR';  // default
-
-    if (req.path.startsWith('/en')) {
+    let lang = 'pt_BR';
+    if (req.cookies && req.cookies.selectedLanguage) {
+        lang = req.cookies.selectedLanguage;
+    } else if (req.path.startsWith('/en')) {
         lang = 'en_US';
     } else if (req.path.startsWith('/pt')) {
         lang = 'pt_BR';
+    } else if (req.path.startsWith('/es')) {
+        lang = 'es_ES';
     }
-    // Could add more language checks
-
-    // Switch i18n to the chosen language
-    // (Note: This changes the "global" instance and is not concurrency safe.
-    //  If you worry about concurrency, see "Concurrency" note below.)
     i18n.changeLanguage(lang, (err) => {
         if (err) {
             console.error('Error setting language', err);
@@ -39,8 +39,8 @@ app.use((req, res, next) => {
     });
 });
 
-app.get(['/', '/en'], homeController);
-app.get(['/politica-de-privacidade', '/en/privacy-policy'], privacyPolicyController);
+app.get(['/', '/en', '/es'], homeController);
+app.get(['/politica-de-privacidade', '/en/privacy-policy', '/es/politica-de-privacidad'], privacyPolicyController);
 app.use((req, res) => {
     homeController(req, res);
 });

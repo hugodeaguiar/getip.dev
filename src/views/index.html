@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ html_lang }}">
+
 <head>
     <script type="application/ld+json">
         {
@@ -13,29 +14,36 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{{ Discover your current IP address with GetIP.dev, the ideal tool to help troubleshoot network and security issues. }}">
+    <meta name="description"
+        content="{{ Discover your current IP address with GetIP.dev, the ideal tool to help troubleshoot network and security issues. }}">
     <title>{{ GetIP.dev - Privacy Policy }}</title>
     <link rel="icon" type="image/png" href="/images/globe.png">
     <link rel="stylesheet" href="/css/pure-min.css">
     <link rel="stylesheet" href="/css/grids-responsive-min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&family=Jersey+20+Charted&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&family=Jersey+20+Charted&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
+
 <body>
     <div class="header">
         <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
             <h1>
                 <a class="pure-menu-heading jersey-10-regular" title="getip.dev" href="/">GetIP.dev</a>
             </h1>
+            <select id="languageSelector" class="pure-menu-item">
+                <!-- Options will be populated dynamically -->
+            </select>
         </div>
     </div>
 
     <div class="splash-container">
         <div class="splash">
             <p class="splash-subhead">
-                {{ Discover your current IP address with GetIP.dev, the ideal tool to help troubleshoot network and security issues. }}
+                {{ Discover your current IP address with GetIP.dev, the ideal tool to help troubleshoot network and
+                security issues. }}
             </p>
 
             <h2 class="second-title">{{ Your current IP address: }}</h2>
@@ -46,10 +54,14 @@
             <div class="pure-g ipinfo">
                 <div class="pure-u-1">
                     <ul class="pure-menu-list">
-                        <li class="pure-menu-item"><strong>{{ City: }}</strong> {{ipinfo.city}}{{^ipinfo.city}}{{"Não identificada."}}{{/ipinfo.city}}</li>
-                        <li class="pure-menu-item"><strong>{{ Region: }}</strong> {{ipinfo.region}}{{^ipinfo.region}}{{"Não identificado."}}{{/ipinfo.region}}</li>
-                        <li class="pure-menu-item"><strong>{{ Country: }}</strong> {{ipinfo.country}}{{^ipinfo.country}}{{"Não identificado."}}{{/ipinfo.country}}</li>
-                        <li class="pure-menu-item"><strong>{{ Provider: }}</strong> {{ipinfo.org}}{{^ipinfo.org}}{{"Não identificado."}}{{/ipinfo.org}}</li>
+                        <li class="pure-menu-item"><strong>{{ City: }}</strong> {{ipinfo.city}}{{^ipinfo.city}}{{"Não
+                            identificada."}}{{/ipinfo.city}}</li>
+                        <li class="pure-menu-item"><strong>{{ Region: }}</strong>
+                            {{ipinfo.region}}{{^ipinfo.region}}{{"Não identificado."}}{{/ipinfo.region}}</li>
+                        <li class="pure-menu-item"><strong>{{ Country: }}</strong>
+                            {{ipinfo.country}}{{^ipinfo.country}}{{"Não identificado."}}{{/ipinfo.country}}</li>
+                        <li class="pure-menu-item"><strong>{{ Provider: }}</strong> {{ipinfo.org}}{{^ipinfo.org}}{{"Não
+                            identificado."}}{{/ipinfo.org}}</li>
                     </ul>
                 </div>
             </div>
@@ -58,36 +70,87 @@
 
     <div class="footer l-box is-center">
         <div class="open-source">
-            <a class="github-button" href="https://github.com/hugodeaguiar/getip.dev" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" aria-label="Star hugodeaguiar/getip.dev on GitHub">Star</a>
+            <a class="github-button" href="https://github.com/hugodeaguiar/getip.dev"
+                data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large"
+                aria-label="Star hugodeaguiar/getip.dev on GitHub">Star</a>
             <br>Open Source
         </div>
-        Copyright © 2024 - 2025 - A project by <a href="https://www.linkedin.com/in/hugodeaguiar/?locale=en_US" target="_blank">Hugo Aguiar</a>
+        Copyright © 2024 - 2025 - A project by <a href="https://www.linkedin.com/in/hugodeaguiar/?locale=en_US"
+            target="_blank">Hugo Aguiar</a>
     </div>
-</div>
+    </div>
 
-<!-- Cookie Consent Popup -->
-<div class="cookie-consent-popup" id="cookieConsentPopup">
-    <p>{{ We use cookies to ensure you have the best experience on our site. }}<a href="/politica-de-privacidade" style="color: #ffd700;"> {{ See more }}</a></p>
-    <button class="pure-button pure-button-primary" id="acceptCookies">Ok</button>
-</div>
+    <!-- Cookie Consent Popup -->
+    <div class="cookie-consent-popup" id="cookieConsentPopup">
+        <p>{{ We use cookies to ensure you have the best experience on our site. }}<a href="/politica-de-privacidade"
+                style="color: #ffd700;"> {{ See more }}</a></p>
+        <button class="pure-button pure-button-primary" id="acceptCookies">Ok</button>
+    </div>
 
-<script>
-    // Show the cookie consent popup if not already accepted
-    document.addEventListener('DOMContentLoaded', function() {
-        if (!localStorage.getItem('cookieConsent')) {
-            document.getElementById('cookieConsentPopup').style.display = 'block';
+    <script>
+        // Helper function to set a cookie
+        function setCookie(name, value, days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            const expires = "expires=" + date.toUTCString();
+            document.cookie = name + "=" + value + ";" + expires + ";path=/";
         }
-    });
 
-    // Handle the accept button click
-    document.getElementById('acceptCookies').addEventListener('click', function() {
-        localStorage.setItem('cookieConsent', 'accepted');
-        document.getElementById('cookieConsentPopup').style.display = 'none';
-    });
-</script>
+        // Helper function to get a cookie
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
 
-<!-- Place this tag in your head or just before your close body tag. -->
-<script async defer src="https://buttons.github.io/buttons.js"></script>
+        // Populate language selector with options from available CSV files
+        document.addEventListener('DOMContentLoaded', function () {
+            const languages = {
+                'en_US': 'en',
+                'pt_BR': 'pt',
+                'es_ES': 'es'
+            }; // Example languages, replace with actual CSV file names
+            const languageSelector = document.getElementById('languageSelector');
+            const currentLang = getCookie('selectedLanguage') || 'en';
+
+            for (const [lang, locale] of Object.entries(languages)) {
+                const option = document.createElement('option');
+                option.value = lang;
+                option.textContent = locale;
+                if (lang === currentLang) {
+                    option.selected = true;
+                }
+                languageSelector.appendChild(option);
+            }
+
+            languageSelector.addEventListener('change', function () {
+                setCookie('selectedLanguage', this.value, 365);
+                location.reload();
+            });
+        });
+
+        // Show the cookie consent popup if not already accepted
+        document.addEventListener('DOMContentLoaded', function () {
+            if (!getCookie('cookieConsent')) {
+                document.getElementById('cookieConsentPopup').style.display = 'block';
+            }
+        });
+
+        // Handle the accept button click
+        document.getElementById('acceptCookies').addEventListener('click', function () {
+            setCookie('cookieConsent', 'accepted', 365);
+            document.getElementById('cookieConsentPopup').style.display = 'none';
+        });
+    </script>
+
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
 
 </body>
+
 </html>
