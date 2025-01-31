@@ -4,7 +4,6 @@ export function getIPInfo(callback, ip) {
     const getIPData = (version) => {
         return new Promise((resolve, reject) => {
             const path = version === 'ipv6' ? `/${ip}/json?token=${process.env.GETINFO_TOKEN}` : `/${ip}/?token=${process.env.GETINFO_TOKEN}`;
-            console.log(path)
             const options = {
                 hostname: 'ipinfo.io',
                 port: 443,
