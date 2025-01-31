@@ -40,7 +40,7 @@
             
             <h2 class="second-title">{{ your_current_ip }}</h2>
             <div class="splash-head">
-                <span>{{ ip }}</span>
+                <p>{{ ip }}</p>
             </div>
             <br>
             <div class="pure-g ipinfo">
@@ -84,6 +84,24 @@
         localStorage.setItem('cookieConsent', 'accepted');
         document.getElementById('cookieConsentPopup').style.display = 'none';
     });
+</script>
+
+<script>
+    const featchData = fetch("https://{{ ipinfo_domain }}?callback")
+        .then(response => { 
+            if (response.status !== 200) {
+                throw Error();
+            }
+            return response.json()})
+        .then(data => {
+            if (data.ip != "{{ ip }}" && data.ip != "") {
+                const newSpan = document.createElement('p');
+                newSpan.textContent = data.ip;
+                document.querySelector('.splash-head').appendChild(newSpan);
+            }
+        }).catch(error => {
+            console.log("Could not obtain second IP");
+        });
 </script>
 
 <!-- Place this tag in your head or just before your close body tag. -->
